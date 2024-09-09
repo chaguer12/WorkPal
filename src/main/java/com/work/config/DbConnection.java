@@ -10,19 +10,19 @@ public class DbConnection  {
         private static Connection conn = null;
 
         public static Connection connect() {
-
                 try {
                         Class.forName("org.postgresql.Driver");
                         conn = DriverManager.getConnection(url, db_user, password);
                         System.out.println("Connected to PostgreSQL database");
 
                 }catch(SQLException e) {
-                        System.out.println(e.getMessage());
+                        System.out.println("sql "+e.getMessage());
 
                 } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
+                        System.out.println("class "+e.getMessage());
                 }
-            return conn;
+                return conn;
+
 
 
         }
