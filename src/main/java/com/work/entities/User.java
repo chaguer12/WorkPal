@@ -24,7 +24,7 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
-    public static int getId_starter() {
+    public int getId_starter() {
         return id_starter;
     }
 

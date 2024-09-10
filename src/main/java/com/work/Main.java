@@ -1,15 +1,14 @@
 package com.work;
 
 
+import com.work.GUI.MainMenu;
 import com.work.config.DbConnection;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Main{
+
+
     public static void main(String[] args) {
+
 
 
     
