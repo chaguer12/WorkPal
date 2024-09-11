@@ -17,11 +17,17 @@ public class Menu {
         System.out.println("====\t Sign up Menu\t ====");
         System.out.println("==\t Enter Username (must be unique):");
         String username = scanner.nextLine();
-        try{
-            if(MemberRepository.isUsernameUnique(username)){
-                System.out.println("Username already exists. Please try again.");
-                return;
-            }
+        try {
+
+
+            do {
+                if (MemberRepository.isUsernameUnique(username)) {
+                    System.out.println("Username already exists. Please try again.");
+                }
+
+                System.out.println("==\t Enter Username (must be unique):");
+                username = scanner.nextLine();
+            } while (username.isEmpty() );
         } catch (Exception e) {
             System.out.println("Error checking username uniqueness.");
         }

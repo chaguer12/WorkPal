@@ -38,7 +38,7 @@ public class MemberRepository implements MemberInterface {
             stmt.setString(2,email);
             stmt.setString(3,hashedPassword);
             stmt.setString(4, String.valueOf(Role.MEMBER));
-            stmt.executeQuery();
+            stmt.executeUpdate();
 
         }catch (SQLException e) {
             System.out.println("Couldn't insert into database: " + e.getMessage());
