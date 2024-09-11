@@ -1,11 +1,18 @@
 package com.work.services;
 
+import com.work.config.DatabaseConnection;
 import com.work.repository.interfaces.MemberInterface;
+import com.work.repository.repositories.MemberRepository;
+
+import java.sql.Connection;
 
 public class MemberService {
-    private final MemberInterface MemberRepository;
+    private Connection conn = DatabaseConnection.getConnection();
+    private final MemberInterface memberRepository  = new MemberRepository(conn);
 
-    public MemberService(MemberInterface MemberRepository) {
-        this.MemberRepository = MemberRepository;
+    public  boolean signUpMember(String username,String email,String hashedPassword){
+        memberRepository.signUpMember(username,email,hashedPassword);
+        return true;
     }
+
 }
