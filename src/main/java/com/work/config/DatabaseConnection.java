@@ -14,7 +14,7 @@ public class DatabaseConnection {
 
     public static Connection Connect() {
         try{
-            class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");
             conn = DriverManager.getConnection(url,db_user,password);
             System.out.println("Connected to database");
 
@@ -24,6 +24,7 @@ public class DatabaseConnection {
         }catch(ClassNotFoundException e){
             System.out.println("ClassNotFoundException: " + e.getMessage());
         }
+        return conn;
     }
     public static Connection getConnection(){
         if(conn == null){
