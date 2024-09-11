@@ -7,7 +7,7 @@ import com.work.repository.repositories.MemberRepository;
 import java.sql.Connection;
 
 public class MemberService {
-    private Connection conn = DatabaseConnection.getConnection();
+    private final Connection conn = DatabaseConnection.getConnection();
     private final MemberInterface memberRepository  = new MemberRepository(conn);
 
     public  boolean signUpMember(String username,String email,String hashedPassword){
