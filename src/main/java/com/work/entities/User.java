@@ -1,6 +1,6 @@
 package com.work.entities;
 
-import com.work.enums.Role;
+import com.work.entities.enums.Role;
 
 public class User {
     private static int id_starter = 1;
