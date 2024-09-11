@@ -1,15 +1,15 @@
 package com.work.repository.repositories;
 
+import com.work.entities.Member;
 import com.work.entities.enums.Role;
 import com.work.repository.interfaces.MemberInterface;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Optional;
 
 public class MemberRepository implements MemberInterface {
     private static Connection conn;
+
 
     public  MemberRepository(Connection conn) {
         this.conn = conn;
@@ -44,5 +44,24 @@ public class MemberRepository implements MemberInterface {
             System.out.println("Couldn't insert into database: " + e.getMessage());
         }
 
+    }
+
+    @Override
+    public boolean loginMember(String username, String hashedPassword){
+        String query = "SELECT * FROM MEMBERS WHERE username=? AND password=?";
+        try (PreparedStatement stmt = conn.prepareStatement(query)){
+            stmt.setString(1,username);
+            stmt.setString(2,hashedPassword);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                return true;
+            }else {
+                return false;
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

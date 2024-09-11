@@ -9,8 +9,9 @@ import java.util.Scanner;
 
 public class Menu {
     private static MemberService memberService = new MemberService();
+    public static Scanner scanner = new Scanner(System.in);
     public static void MainMenu(){
-        Scanner scanner = new Scanner(System.in);
+
 
         int choice = 0;
 
@@ -38,7 +39,15 @@ public class Menu {
                     // Admin-specific actions
                     break;
                 case 3:
-                    MemberMenu();
+
+                    System.out.println("====\t Press [0] to login or [1] to Sign up \t====");
+                    if(scanner.nextInt() == 0){
+                        MemberMenu.MemberLoginMenu();
+
+                    }else{
+                        MemberSignUpMenu();
+                    }
+
                     break;
                 case 4:
                     System.out.println("Exiting...");
@@ -50,9 +59,8 @@ public class Menu {
 
     }
 
-    public static void MemberMenu(){
+    public static void MemberSignUpMenu(){
         System.out.println("====\tWelcome to WorkPal\t====");
-        Scanner scanner = new Scanner(System.in);
         System.out.println("====\t Sign up Menu\t ====");
         System.out.println("==\t Enter Username (must be unique):");
         String username = scanner.nextLine();
