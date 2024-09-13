@@ -57,8 +57,16 @@ public class AdminMenu {
             choice = scanner.nextInt();
             switch (choice){
                 case 1:
-                    memberService.signUpMember();
-
+                    Menu.MemberSignUpMenu();
+                    break;
+                case 2:
+                    Menu.ManagerSignUpMenu();
+                    break;
+                case 3:
+                    firstMenu();
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
             }
         }while(choice !=0 );
         Menu.MemberSignUpMenu();

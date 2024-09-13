@@ -9,6 +9,10 @@ import java.sql.PreparedStatement;
 
 public class ManagerRepository implements ManagerInterface {
     private static Connection conn;
+    public ManagerRepository(Connection conn) {
+        this.conn = conn;
+
+    }
     @Override
     public void signUpManager(String username,String email,String hashedPassword) {
         String query = "insert into managers(username,email,password,role) values(?,?,?,?)";
